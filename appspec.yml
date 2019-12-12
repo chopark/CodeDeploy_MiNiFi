@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+files:
+  - source:  ./
+    destination: /home/ubuntu/
+
+hooks:
+  BeforeInstall:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: /home/ubuntu/scripts/after_deploy.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: /home/ubuntu/scripts/start_minifi.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStop:    
+    - location: /home/ubuntu/scripts/stop_minifi.sh
+      timeout: 300
+      runas: ubuntu
