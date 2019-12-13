@@ -6,6 +6,6 @@ files:
 
 hooks:
   AfterInstall:
-    - location: /home/ubuntu/scripts/install_dependencies.sh
+    - location: ./scripts/install_dependencies.sh
       timeout: 300
       runas: ubuntu
