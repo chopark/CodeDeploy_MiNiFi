@@ -1,0 +1,38 @@
+MEMO
+CodeDeploy Tutorial
+https://www.youtube.com/watch?v=83d5YuG-KiQ
+https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/tutorials-auto-scaling-group-create-auto-scaling-group.html
+
+Remotely run commands in autoscale
+https://www.youtube.com/watch?v=Pn2bsPOXnfI
+
+
+CodeDeploy Limit
+https://docs.aws.amazon.com/codedeploy/latest/userguide/limits.html
+
+Fleet Limit
+https://aws.amazon.com/about-aws/whats-new/2019/02/amazon-EC2-fleet-now-lets-you-increase-the-fleets-target-capacity-limits/?nc1=h_ls
+
+Amazon EC2 Auto Scaling Limits
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html
+
+Run command to multi instances
+https://aws.amazon.com/blogs/aws/new-ec2-run-command-remote-instance-management-at-scale/
+
+EC2Config
+Run Command works across all of your Windows instances and uses the existing EC2Config agent on the instances.
+https://docs.aws.amazon.com/ko_kr/AWSEC2/latest/WindowsGuide/ec2config-service.html
+
+https://nifi.apache.org/minifi/download.html
+
+springboot
+
+
+large file issues
+MiNiFi 
+1. s3
+2. wget =? any missing configurations?
+CodeDeploy does not supports lfs
+https://forums.aws.amazon.com/thread.jspa?threadID=240172
+Run Command works across all of your Windows instances and uses the existing EC2Config agent on the instances. 
+
