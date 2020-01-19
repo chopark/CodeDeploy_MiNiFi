@@ -13,7 +13,7 @@ echo JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/environment
 source /etc/environment
 
 #check minifi dir and extract from minifi.tar.gz
-if [ ! -d "$HOME/jarvis-minifi-scale-aws" ]; then
+if [ ! -d "$HOME/minifi" ]; then
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
         sudo rm minifi.tar.gz.*
 fi
