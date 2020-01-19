@@ -17,6 +17,7 @@ if [ ! -d "$HOME/jarvis-minifi-scale-aws" ]; then
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
         mv $HOME/jarvis-minifi-scale-aws/minifi $HOME/minifi
         sudo rm -r $HOME/jarvis-minifi-scale-aws
+        sudo rm minifi.tar.gz.*
 fi
 
 $MINIFI_DIR/minifi-toolkit/minifi-toolkit-0.5.0/bin/config.sh transform $HOME/mini-distr.xml $HOME/config.yml
