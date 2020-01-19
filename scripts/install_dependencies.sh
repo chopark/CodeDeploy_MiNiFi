@@ -15,8 +15,6 @@ source /etc/environment
 #check minifi dir and extract from minifi.tar.gz
 if [ ! -d "$HOME/jarvis-minifi-scale-aws" ]; then
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
-        mv $HOME/jarvis-minifi-scale-aws/minifi $HOME/minifi
-        sudo rm -r $HOME/jarvis-minifi-scale-aws
         sudo rm minifi.tar.gz.*
 fi
 

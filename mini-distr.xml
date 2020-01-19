@@ -378,7 +378,7 @@
                 <properties>
                     <entry>
                         <key>Input Directory</key>
-                        <value>/home/ubuntu/jarvis-minifi/minifi/operator-profile-input-data</value>
+                        <value>/home/ubuntu/minifi/operator-profile-input-data</value>
                     </entry>
                     <entry>
                         <key>File Filter</key>
