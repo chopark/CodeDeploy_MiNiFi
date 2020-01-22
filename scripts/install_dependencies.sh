@@ -14,7 +14,6 @@ source /etc/environment
 
 #check minifi dir and extract from minifi.tar.gz
 if [ ! -d "$HOME/minifi" ]; then
-        cd $HOME
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
         mv minifi $HOME/minifi
         sudo rm $HOME/minifi.tar.gz.*
