@@ -8,7 +8,7 @@ MINIFI_CONF="$MINIFI_HOME/conf"
 MINIFI_BIN="$MINIFI_HOME/bin"
 
 sudo apt-get update
-sudo apt-get install openjdk-8-jdk
+sudo apt-get install -y openjdk-8-jdk
 echo JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/environment
 source /etc/environment
 
