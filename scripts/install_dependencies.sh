@@ -14,8 +14,10 @@ source /etc/environment
 
 #check minifi dir and extract from minifi.tar.gz
 if [ ! -d "$HOME/minifi" ]; then
+        cd $HOME
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
-        sudo rm minifi.tar.gz.*
+        mv minifi $HOME/minifi
+        sudo rm $HOME/minifi.tar.gz.*
 fi
 
 $MINIFI_DIR/minifi-toolkit/minifi-toolkit-0.5.0/bin/config.sh transform $HOME/mini-distr.xml $HOME/config.yml
