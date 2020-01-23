@@ -20,4 +20,4 @@ if [ ! -d "$HOME/minifi" ]; then
 fi
 
 $MINIFI_DIR/minifi-toolkit/minifi-toolkit-0.5.0/bin/config.sh transform $HOME/mini-distr.xml $HOME/config.yml
-mv $HOME/config.yml $MINIFI_CONF
+sudo mv $HOME/config.yml $MINIFI_CONF
