@@ -19,5 +19,4 @@ if [ ! -d "$HOME/minifi" ]; then
         sudo rm $HOME/minifi.tar.gz.*
 fi
 
-$MINIFI_DIR/minifi-toolkit/minifi-toolkit-0.5.0/bin/config.sh transform $HOME/mini-distr.xml $HOME/config.yml
 sudo mv $HOME/config.yml $MINIFI_CONF
