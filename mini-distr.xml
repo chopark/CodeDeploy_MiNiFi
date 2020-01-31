@@ -464,8 +464,8 @@
             </contents>
             <proxyHost></proxyHost>
             <proxyUser></proxyUser>
-            <targetUri>http://172.31.4.153:8080/nifi</targetUri>
-            <targetUris>http://172.31.4.153:8080/nifi</targetUris>
+            <targetUri>http://172.31.18.118:8080/nifi</targetUri>
+            <targetUris>http://172.31.18.118:8080/nifi</targetUris>
             <transportProtocol>RAW</transportProtocol>
             <yieldDuration>0 sec</yieldDuration>
         </remoteProcessGroups>
