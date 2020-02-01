@@ -57,7 +57,7 @@ Processors:
     Batch Size: '1'
     File Filter: '[^\.].*'
     Ignore Hidden Files: 'true'
-    Input Directory: /mnt/ram_disk/jarvis-minifi/minifi/operator-profile-input-data
+    Input Directory: /home/ubuntu/minifi/operator-profile-input-data
     Keep Source File: 'true'
     Maximum File Age:
     Maximum File Size:
@@ -66,38 +66,6 @@ Processors:
     Path Filter:
     Polling Interval: 0 sec
     Recurse Subdirectories: 'false'
-- id: 2ba94ffe-8b51-3639-0000-000000000000
-  name: LogAttribute
-  class: org.apache.nifi.processors.standard.LogAttribute
-  max concurrent tasks: 1
-  scheduling strategy: TIMER_DRIVEN
-  scheduling period: 0 sec
-  penalization period: 30 sec
-  yield period: 0 sec
-  run duration nanos: 0
-  auto-terminated relationships list:
-  - success
-  Properties:
-    Attributes to Ignore:
-    Attributes to Log:
-    Log Level: info
-    Log Payload: 'false'
-    Log prefix:
-    attributes-to-ignore-regex:
-    attributes-to-log-regex: .*
-    character-set: UTF-8
-- id: e5f170fd-b390-34f8-0000-000000000000
-  name: MyProcessor
-  class: com.jarvis.processors.edge.MyProcessor
-  max concurrent tasks: 5
-  scheduling strategy: TIMER_DRIVEN
-  scheduling period: 0 sec
-  penalization period: 30 sec
-  yield period: 0 sec
-  run duration nanos: 0
-  auto-terminated relationships list: []
-  Properties:
-    MY_PROPERTY: tr
 - id: 36edb56c-214d-3ea4-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
@@ -112,6 +80,7 @@ Processors:
     Delete Attributes Expression:
     Stateful Variables Initial Value:
     Store State: Do not store state
+    m_my_ip: ${ip()}
     m_source_flowfile_start: ${lineageStartDate}
     m_source_now: ${now():toNumber()}
     origFileSize: ${fileSize}
@@ -154,32 +123,22 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 2f080718-7532-3e0a-0000-000000000000
-  name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
-  source id: e5f170fd-b390-34f8-0000-000000000000
+- id: 924191e5-7e1e-3f76-0000-000000000000
+  name: UpdateAttribute/success/UpdateAttribute
+  source id: 36edb56c-214d-3ea4-0000-000000000000
   source relationship names:
-  - MY_RELATIONSHIP
+  - success
   destination id: a102dfe7-9923-3995-0000-000000000000
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 14ff4f95-de22-3d0f-0000-000000000000
-  name: UpdateAttribute/success/LogAttribute
+- id: 7d5ead52-2912-3199-0000-000000000000
+  name: UpdateAttribute/success/bc17f030-016c-1000-2eba-262e61a9059b
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: 2ba94ffe-8b51-3639-0000-000000000000
-  max work queue size: 100000
-  max work queue data size: 5 GB
-  flowfile expiration: 0 sec
-  queue prioritizer class: ''
-- id: d0bb62fd-924b-3825-0000-000000000000
-  name: UpdateAttribute/success/MyProcessor
-  source id: 36edb56c-214d-3ea4-0000-000000000000
-  source relationship names:
-  - success
-  destination id: e5f170fd-b390-34f8-0000-000000000000
+  destination id: bc17f030-016c-1000-2eba-262e61a9059b
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
@@ -187,7 +146,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.4.153:8080/nifi
+  url: http://172.31.18.29:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
@@ -196,13 +155,12 @@ Remote Process Groups:
   proxy port: ''
   proxy user: ''
   proxy password: ''
-  local network interface: eth0
+  local network interface: ''
   Input Ports:
-  - id: f95191aa-016f-1000-d21a-5c910004530f
+  - id: bc17f030-016c-1000-2eba-262e61a9059b
     name: From MiNiFi
     comment: ''
     max concurrent tasks: 1
     use compression: false
   Output Ports: []
-
 NiFi Properties Overrides: {}
