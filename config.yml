@@ -57,7 +57,7 @@ Processors:
     Batch Size: '1'
     File Filter: '[^\.].*'
     Ignore Hidden Files: 'true'
-    Input Directory: /home/ubuntu/jarvis-minifi/minifi/operator-profile-input-data
+    Input Directory: /home/ubuntu/minifi/operator-profile-input-data
     Keep Source File: 'true'
     Maximum File Age:
     Maximum File Size:
