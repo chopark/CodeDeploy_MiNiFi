@@ -145,7 +145,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://localhost:8080/nifi
+  url: http://172.31.4.153:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
