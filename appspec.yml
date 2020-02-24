@@ -6,7 +6,7 @@ files:
 
 hooks:
   ApplicationStop:  
-    - location: ./scripts/install_dependencies.sh
+    - location: ./scripts/stop_minifi.sh
       timeout: 180  
       runas: root
   BeforeInstall:  
