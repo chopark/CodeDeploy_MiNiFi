@@ -5,10 +5,6 @@ files:
     destination: /home/ubuntu/
 
 hooks:
-  ApplicationStop:  
-    - location: ./scripts/stop_minifi.sh
-      timeout: 180  
-      runas: root
   BeforeInstall:  
     - location: ./scripts/install_dependencies.sh
       timeout: 180  
