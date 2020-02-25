@@ -5,11 +5,7 @@ files:
     destination: /home/ubuntu/
 
 hooks:
-  BeforeInstall:  
+  AfterInstall:
     - location: ./scripts/install_dependencies.sh
-      timeout: 300  
-      runas: root
-  ValidateService:
-    - location: ./scripts/install_dependencies.sh
-      timeout: 120
+      timeout: 300
       runas: root
