@@ -5,15 +5,11 @@ files:
     destination: /home/ubuntu/
 
 hooks:
-  BeforeInstall:  
-    - location: ./scripts/install_dependencies.sh
-      timeout: 180  
-      runas: root
   AfterInstall:
-    - location: ./scripts/install_minifi.sh
+    - location: ./scripts/install_dependencies.sh
       timeout: 180
       runas: root
   ApplicationStart:
-    - location: ./scripts/install_java.sh
+    - location: ./scripts/install_minifi.sh
       timeout: 180
       runas: root
