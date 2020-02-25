@@ -17,10 +17,8 @@ if [ ! -d "$HOME/minifi" ]; then
         sudo rm $HOME/minifi.tar.gz.*
 fi
 
-sudo mv $HOME/config.yml $MINIFI_CONF
-
-
-# install java
 sudo dpkg -i $MINIFI_DIR/jdk/*
 echo JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/environment
 source /etc/environment
+
+sudo mv $HOME/config.yml $MINIFI_CONF
