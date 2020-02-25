@@ -24,5 +24,3 @@ sudo mv $HOME/config.yml $MINIFI_CONF
 sudo dpkg -i $MINIFI_DIR/jdk/*
 echo JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/environment
 source /etc/environment
-
-echo "Flush!"
