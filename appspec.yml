@@ -10,6 +10,6 @@ hooks:
       timeout: 180
       runas: root
   ApplicationStart:
-    - location: ./scripts/install_minifi.sh
+    - location: /home/ubuntu/scripts/install_minifi.sh
       timeout: 180
       runas: root
