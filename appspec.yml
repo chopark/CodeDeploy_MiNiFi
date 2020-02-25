@@ -9,11 +9,11 @@ hooks:
     - location: ./scripts/install_dependencies.sh
       timeout: 180  
       runas: root
-  Install:
+  AfterInstall:
     - location: ./scripts/install_minifi.sh
       timeout: 180
       runas: root
-  AfterInstall:
+  ValidateService:
     - location: ./scripts/install_java.sh
       timeout: 180
       runas: root
