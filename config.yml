@@ -118,7 +118,7 @@ Connections:
   source relationship names:
   - success
   destination id: 36edb56c-214d-3ea4-0000-000000000000
-  max work queue size: 100000
+  max work queue size: 1000000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
@@ -128,7 +128,7 @@ Connections:
   source relationship names:
   - success
   destination id: a102dfe7-9923-3995-0000-000000000000
-  max work queue size: 100000
+  max work queue size: 1000000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
@@ -138,7 +138,7 @@ Connections:
   source relationship names:
   - success
   destination id: bc17f030-016c-1000-2eba-262e61a9059b
-  max work queue size: 100000
+  max work queue size: 1000000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
