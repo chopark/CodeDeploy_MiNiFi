@@ -48,7 +48,7 @@ Processors:
   class: org.apache.nifi.processors.standard.GetFile
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
-  scheduling period: 1 sec
+  scheduling period: 500 ms
   penalization period: 30 sec
   yield period: 0 sec
   run duration nanos: 0
@@ -66,18 +66,17 @@ Processors:
     Path Filter:
     Polling Interval: 0 sec
     Recurse Subdirectories: 'false'
-- id: f30fa740-57de-3797-0000-000000000000
+- id: 2d46c126-d858-3a42-0000-000000000000
   name: MyProcessor
   class: com.jarvis.processors.edge.MyProcessor
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
   scheduling period: 0 sec
   penalization period: 30 sec
-  yield period: 0 sec
+  yield period: 1 sec
   run duration nanos: 0
   auto-terminated relationships list: []
-  Properties:
-    MY_PROPERTY: we
+  Properties: {}
 - id: 36edb56c-214d-3ea4-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
@@ -134,9 +133,9 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 8dcade34-a191-3868-0000-000000000000
+- id: b285490c-f20d-3c7a-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
-  source id: f30fa740-57de-3797-0000-000000000000
+  source id: 2d46c126-d858-3a42-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP
   destination id: a102dfe7-9923-3995-0000-000000000000
@@ -144,9 +143,9 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 417833eb-cb7d-3178-0000-000000000000
+- id: 90911691-2b86-305e-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP_1/a9ba4c36-0170-1000-eafb-0f89b0d68514
-  source id: f30fa740-57de-3797-0000-000000000000
+  source id: 2d46c126-d858-3a42-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP_1
   destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
@@ -154,17 +153,17 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 96be6638-a83d-35f0-0000-000000000000
+- id: 8f22d1f6-b5d2-39c0-0000-000000000000
   name: UpdateAttribute/success/MyProcessor
   source id: 36edb56c-214d-3ea4-0000-000000000000
   source relationship names:
   - success
-  destination id: f30fa740-57de-3797-0000-000000000000
+  destination id: 2d46c126-d858-3a42-0000-000000000000
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 6a67c11a-eec4-3a71-0000-000000000000
+- id: dcc5e2f5-955c-3ccd-0000-000000000000
   name: UpdateAttribute/success/a9ba4c36-0170-1000-eafb-0f89b0d68514
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
