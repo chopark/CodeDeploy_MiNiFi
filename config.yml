@@ -48,7 +48,7 @@ Processors:
   class: org.apache.nifi.processors.standard.GetFile
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
-  scheduling period: 500 ms
+  scheduling period: 1 sec
   penalization period: 30 sec
   yield period: 0 sec
   run duration nanos: 0
@@ -66,14 +66,14 @@ Processors:
     Path Filter:
     Polling Interval: 0 sec
     Recurse Subdirectories: 'false'
-- id: 2d46c126-d858-3a42-0000-000000000000
+- id: 1bfe2b5d-4624-30ca-0000-000000000000
   name: MyProcessor
   class: com.jarvis.processors.edge.MyProcessor
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
   scheduling period: 0 sec
   penalization period: 30 sec
-  yield period: 1 sec
+  yield period: 0 sec
   run duration nanos: 0
   auto-terminated relationships list: []
   Properties: {}
@@ -129,13 +129,13 @@ Connections:
   source relationship names:
   - success
   destination id: 36edb56c-214d-3ea4-0000-000000000000
-  max work queue size: 100000
-  max work queue data size: 5 GB
+  max work queue size: 10000000
+  max work queue data size: 10 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: b285490c-f20d-3c7a-0000-000000000000
+- id: 4916e20b-f940-3670-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
-  source id: 2d46c126-d858-3a42-0000-000000000000
+  source id: 1bfe2b5d-4624-30ca-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP
   destination id: a102dfe7-9923-3995-0000-000000000000
@@ -143,40 +143,40 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 90911691-2b86-305e-0000-000000000000
-  name: MyProcessor/MY_RELATIONSHIP_1/a9ba4c36-0170-1000-eafb-0f89b0d68514
-  source id: 2d46c126-d858-3a42-0000-000000000000
+- id: a1a7df6c-e908-3862-0000-000000000000
+  name: MyProcessor/MY_RELATIONSHIP_1/bc17f030-016c-1000-2eba-262e61a9059b
+  source id: 1bfe2b5d-4624-30ca-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP_1
-  destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
+  destination id: bc17f030-016c-1000-2eba-262e61a9059b
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 8f22d1f6-b5d2-39c0-0000-000000000000
+- id: 0b3475be-50a8-3c1f-0000-000000000000
   name: UpdateAttribute/success/MyProcessor
   source id: 36edb56c-214d-3ea4-0000-000000000000
   source relationship names:
   - success
-  destination id: 2d46c126-d858-3a42-0000-000000000000
+  destination id: 1bfe2b5d-4624-30ca-0000-000000000000
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: dcc5e2f5-955c-3ccd-0000-000000000000
-  name: UpdateAttribute/success/a9ba4c36-0170-1000-eafb-0f89b0d68514
+- id: f8e14613-d7b0-33a4-0000-000000000000
+  name: UpdateAttribute/success/bc17f030-016c-1000-2eba-262e61a9059b
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
-  max work queue size: 100000
-  max work queue data size: 5 GB
+  destination id: bc17f030-016c-1000-2eba-262e61a9059b
+  max work queue size: 10000000
+  max work queue data size: 10 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.19.6:8080/nifi
+  url:  http://172.31.19.6:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
@@ -187,7 +187,7 @@ Remote Process Groups:
   proxy password: ''
   local network interface: ''
   Input Ports:
-  - id: a9ba4c36-0170-1000-eafb-0f89b0d68514
+  - id: bc17f030-016c-1000-2eba-262e61a9059b
     name: From MiNiFi
     comment: ''
     max concurrent tasks: 1
