@@ -9,9 +9,10 @@ if [ -d "$MINIFI_DIR" ]; then
 	sudo chmod +x $MINIFI_BIN/minifi.sh
 	rm -rf $MINIFI_HOME/content_repository/* $MINIFI_HOME/provenance_repository/* $MINIFI_HOME/flowfile_repository/* $MINIFI_HOME/state/local/* $MINIFI_HOME/logs/*
 	$MINIFI_BIN/minifi.sh start
-
-	limit=$2
-	sudo at now + $1 minute -f limit_cpu.sh $limit
+	if [ $# -eq 2 ]; then
+		limit=$2
+		sudo at $1 -f limit_cpu.sh $limit
+	fi
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
