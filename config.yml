@@ -66,7 +66,7 @@ Processors:
     Path Filter:
     Polling Interval: 0 sec
     Recurse Subdirectories: 'false'
-- id: e4193ee3-c7cd-3065-0000-000000000000
+- id: af44681f-2635-301c-0000-000000000000
   name: MyProcessor
   class: com.jarvis.processors.edge.MyProcessor
   max concurrent tasks: 1
@@ -134,9 +134,9 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: adc77172-503e-3fc2-0000-000000000000
+- id: ab92a6aa-f232-38cb-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
-  source id: e4193ee3-c7cd-3065-0000-000000000000
+  source id: af44681f-2635-301c-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP
   destination id: a102dfe7-9923-3995-0000-000000000000
@@ -144,12 +144,12 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: f2ffc88d-ad48-3c9f-0000-000000000000
+- id: 079bd6e3-cb0e-318d-0000-000000000000
   name: UpdateAttribute/success/MyProcessor
   source id: 36edb56c-214d-3ea4-0000-000000000000
   source relationship names:
   - success
-  destination id: e4193ee3-c7cd-3065-0000-000000000000
+  destination id: af44681f-2635-301c-0000-000000000000
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
@@ -167,7 +167,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.29.139:8080/nifi
+  url: http://172.31.17.180:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
