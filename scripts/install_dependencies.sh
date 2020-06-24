@@ -24,3 +24,4 @@ source /etc/environment
 
 sudo mv $HOME/config.yml $MINIFI_CONF
 sudo chmod +x $HOME/scripts/*
+sudo reboot
