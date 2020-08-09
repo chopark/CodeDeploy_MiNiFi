@@ -190,7 +190,7 @@ Remote Process Groups:
   - id: a9ba4c36-0170-1000-eafb-0f89b0d68514
     name: From MiNiFi
     comment: ''
-    max concurrent tasks: 4
+    max concurrent tasks: 8
     use compression: false
   Output Ports: []
 NiFi Properties Overrides: {}
