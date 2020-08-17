@@ -15,9 +15,9 @@ sudo apt-get install -y cpulimit
 if [ ! -d "$HOME/minifi" ]; then
         cat $HOME/minifi.tar.gz.* | tar -zxvf -
         mv minifi $HOME/minifi
-        sudo rm $HOME/minifi.tar.gz.*
 fi
 
+sudo rm $HOME/minifi.tar.gz.*
 sudo dpkg -i $MINIFI_DIR/jdk/*
 echo JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" >> /etc/environment
 source /etc/environment
