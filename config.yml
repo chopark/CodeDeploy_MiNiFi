@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: minifi-distri
+  name: mini-distr
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -75,8 +75,7 @@ Processors:
   penalization period: 30 sec
   yield period: 1 sec
   run duration nanos: 0
-  auto-terminated relationships list:
-  - MY_RELATIONSHIP_1
+  auto-terminated relationships list: []
   Properties: {}
 - id: 36edb56c-214d-3ea4-0000-000000000000
   name: UpdateAttribute
@@ -144,12 +143,22 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: c9169718-aee9-3b18-0000-000000000000
-  name: UpdateAttribute/success/00107a8c-0174-1000-3dbf-458a6f813a73
+- id: 3b6a3b8a-fd49-3940-0000-000000000000
+  name: MyProcessor/MY_RELATIONSHIP_1/a9ba4c36-0170-1000-eafb-0f89b0d68514
+  source id: a4a0ce63-e634-3d44-0000-000000000000
+  source relationship names:
+  - MY_RELATIONSHIP_1
+  destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
+  max work queue size: 100000
+  max work queue data size: 5 GB
+  flowfile expiration: 0 sec
+  queue prioritizer class: ''
+- id: 00a18e01-9b1d-3c8e-0000-000000000000
+  name: UpdateAttribute/success/29d12bf9-0174-1000-8db7-f3962403ce9e
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: 00107a8c-0174-1000-3dbf-458a6f813a73
+  destination id: 29d12bf9-0174-1000-8db7-f3962403ce9e
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
@@ -167,7 +176,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.60.48:8080/nifi
+  url: http://localhost:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
@@ -178,10 +187,15 @@ Remote Process Groups:
   proxy password: ''
   local network interface: ''
   Input Ports:
-  - id: 00107a8c-0174-1000-3dbf-458a6f813a73
-    name: From MiNiFi 1
+  - id: a9ba4c36-0170-1000-eafb-0f89b0d68514
+    name: From MiNiFi
     comment: ''
-    max concurrent tasks: 2
+    max concurrent tasks: 1
+    use compression: false
+  - id: 29d12bf9-0174-1000-8db7-f3962403ce9e
+    name: From MiNiFi1
+    comment: ''
+    max concurrent tasks: 1
     use compression: false
   Output Ports: []
 NiFi Properties Overrides: {}
