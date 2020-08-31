@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: mini-distr
+  name: from-minifi
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -75,7 +75,8 @@ Processors:
   penalization period: 30 sec
   yield period: 1 sec
   run duration nanos: 0
-  auto-terminated relationships list: []
+  auto-terminated relationships list:
+  - MY_RELATIONSHIP_1
   Properties: {}
 - id: 36edb56c-214d-3ea4-0000-000000000000
   name: UpdateAttribute
@@ -143,16 +144,6 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 3b6a3b8a-fd49-3940-0000-000000000000
-  name: MyProcessor/MY_RELATIONSHIP_1/a9ba4c36-0170-1000-eafb-0f89b0d68514
-  source id: a4a0ce63-e634-3d44-0000-000000000000
-  source relationship names:
-  - MY_RELATIONSHIP_1
-  destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
-  max work queue size: 100000
-  max work queue data size: 5 GB
-  flowfile expiration: 0 sec
-  queue prioritizer class: ''
 - id: 3929196c-8571-349e-0000-000000000000
   name: UpdateAttribute/success/MyProcessor
   source id: 36edb56c-214d-3ea4-0000-000000000000
@@ -163,7 +154,7 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: ffaf83ad-588b-3e78-0000-000000000000
+- id: 00a18e01-9b1d-3c8e-0000-000000000000
   name: UpdateAttribute/success/a9ba4c36-0170-1000-eafb-0f89b0d68514
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
@@ -190,12 +181,17 @@ Remote Process Groups:
   - id: a9ba4c36-0170-1000-eafb-0f89b0d68514
     name: From MiNiFi
     comment: ''
-    max concurrent tasks: 4
+    max concurrent tasks: 2
     use compression: false
   - id: 29d12bf9-0174-1000-8db7-f3962403ce9e
     name: From MiNiFi1
     comment: ''
-    max concurrent tasks: 4
+    max concurrent tasks: 2
+    use compression: false
+  - id: 44286a16-0174-1000-ed54-9298400d6eb9
+    name: From MiNiFi2
+    comment: ''
+    max concurrent tasks: 2
     use compression: false
   Output Ports: []
 NiFi Properties Overrides: {}
