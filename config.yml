@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: from-minifi15
+  name: from-minif
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -144,16 +144,6 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 00a18e01-9b1d-3c8e-0000-000000000000
-  name: UpdateAttribute/success/1176100b-1a16-1428-4e5d-67c6ee86bc4b
-  source id: a102dfe7-9923-3995-0000-000000000000
-  source relationship names:
-  - success
-  destination id: 1176100b-1a16-1428-4e5d-67c6ee86bc4b
-  max work queue size: 100000
-  max work queue data size: 5 GB
-  flowfile expiration: 0 sec
-  queue prioritizer class: ''
 - id: 3929196c-8571-349e-0000-000000000000
   name: UpdateAttribute/success/MyProcessor
   source id: 36edb56c-214d-3ea4-0000-000000000000
@@ -164,10 +154,20 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
+- id: 00a18e01-9b1d-3c8e-0000-000000000000
+  name: UpdateAttribute/success/a9ba4c36-0170-1000-eafb-0f89b0d68514
+  source id: a102dfe7-9923-3995-0000-000000000000
+  source relationship names:
+  - success
+  destination id: a9ba4c36-0170-1000-eafb-0f89b0d68514
+  max work queue size: 100000
+  max work queue data size: 5 GB
+  flowfile expiration: 0 sec
+  queue prioritizer class: ''
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.17.44:8080/nifi
+  url: http://172.31.28.146:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
@@ -200,61 +200,6 @@ Remote Process Groups:
     use compression: false
   - id: 44286a16-0174-1000-ed54-9298400d6eb9
     name: From MiNiFi2
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 10031176-1428-1a16-3864-db1e342f521c
-    name: From MiNiFi7
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 14281a16-1176-1003-550f-f63705f6808a
-    name: From MiNiFi8
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 6a161428-1003-1174-e15e-7746083c26ca
-    name: From MiNiFi5
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 10031174-1428-1a16-15a5-1d81069cf609
-    name: From MiNiFi6
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 11761003-1a16-1428-a207-dcda263361d7
-    name: From MiNiFi9
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 11761007-1a16-1428-0310-9361808295d0
-    name: From MiNiFi11
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 11761005-1a16-1428-0840-bd9489847f79
-    name: From MiNiFi10
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 1176100f-1a16-1428-9d85-0d6c4cee28e7
-    name: From MiNiFi13
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 1176100d-1a16-1428-d31e-1c04cf036324
-    name: From MiNiFi12
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 1176100b-1a16-1428-4e5d-67c6ee86bc4b
-    name: From MiNiFi15
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: 11761009-1a16-1428-4f4e-140754f75618
-    name: From MiNiFi14
     comment: ''
     max concurrent tasks: 2
     use compression: false
