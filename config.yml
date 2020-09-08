@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: from-minif4
+  name: from-minifi5
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -145,11 +145,11 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 00a18e01-9b1d-3c8e-0000-000000000000
-  name: UpdateAttribute/success/01741003-6a16-1428-b06d-2d68ca2eb5f1
+  name: UpdateAttribute/success/6a161428-1003-1174-e15e-7746083c26ca
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: 01741003-6a16-1428-b06d-2d68ca2eb5f1
+  destination id: 6a161428-1003-1174-e15e-7746083c26ca
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
@@ -200,6 +200,21 @@ Remote Process Groups:
     use compression: false
   - id: 44286a16-0174-1000-ed54-9298400d6eb9
     name: From MiNiFi2
+    comment: ''
+    max concurrent tasks: 2
+    use compression: false
+  - id: 10031176-1428-1a16-3864-db1e342f521c
+    name: From MiNiFi7
+    comment: ''
+    max concurrent tasks: 2
+    use compression: false
+  - id: 6a161428-1003-1174-e15e-7746083c26ca
+    name: From MiNiFi5
+    comment: ''
+    max concurrent tasks: 2
+    use compression: false
+  - id: 10031174-1428-1a16-15a5-1d81069cf609
+    name: From MiNiFi6
     comment: ''
     max concurrent tasks: 2
     use compression: false
