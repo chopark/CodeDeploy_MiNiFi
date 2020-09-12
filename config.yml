@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: from-minif26
+  name: from-minif27
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -145,11 +145,11 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 00a18e01-9b1d-3c8e-0000-000000000000
-  name: UpdateAttribute/success/100b1187-1428-1a16-5a98-b973d31feeb0
+  name: UpdateAttribute/success/100b1189-1428-1a16-92a6-9142d5008712
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: 100b1187-1428-1a16-5a98-b973d31feeb0
+  destination id: 100b1189-1428-1a16-92a6-9142d5008712
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
