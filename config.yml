@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: from-minifi39
+  name: from-minifi0
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -189,11 +189,11 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6fe4aaa-0174-1000-2975-986a11b3b7a8
+  name: UpdateAttribute/success/bc17f030-016c-1000-2eba-262e61a9059b
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6fe4aaa-0174-1000-2975-986a11b3b7a8
+  destination id: bc17f030-016c-1000-2eba-262e61a9059b
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
@@ -219,11 +219,6 @@ Remote Process Groups:
     use compression: false
   - id: f6fe4ab8-0174-1000-edbd-7ad0b1e3c3f3
     name: From MiNiFi53
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6fe4ab7-0174-1000-63b9-449307aef64c
-    name: From MiNiFi52
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -302,11 +297,6 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6fe4abe-0174-1000-1bbb-e16dc260a988
-    name: From MiNiFi59
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6f797a7-0174-1000-7539-48d04b2723f1
     name: From MiNiFi14
     comment: ''
@@ -314,11 +304,6 @@ Remote Process Groups:
     use compression: false
   - id: f6fe4abd-0174-1000-06ba-1db7db1dd1fe
     name: From MiNiFi58
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6fe4aad-0174-1000-4d15-cfaffa248eb3
-    name: From MiNiFi42
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -334,11 +319,6 @@ Remote Process Groups:
     use compression: false
   - id: f6fe4aae-0174-1000-e687-8e720664ca14
     name: From MiNiFi43
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6fe4aab-0174-1000-4c42-5ca84365ed01
-    name: From MiNiFi40
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -362,11 +342,6 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6f48393-0174-1000-c065-fbbe24f45a8b
-    name: From MiNiFi07
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6f22a4f-0174-1000-66d2-90475535f9a2
     name: From MiNiFi02
     comment: ''
@@ -382,23 +357,8 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
-    name: From MiNiFi01
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6f3eae4-0174-1000-a575-de5789b576a6
-    name: From MiNiFi04
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6fe4ab3-0174-1000-a2a3-8bdcc0f97278
     name: From MiNiFi48
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6f3eae3-0174-1000-2375-0c91974c5b6b
-    name: From MiNiFi03
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -407,13 +367,13 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6fa69aa-0174-1000-8271-44d72bcceaeb
-    name: From MiNiFi31
+  - id: f6f3eae3-0174-1000-2375-0c91974c5b6b
+    name: From MiNiFi03
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6fa69a9-0174-1000-e1dc-7954d8f477c2
-    name: From MiNiFi30
+  - id: f6fa69aa-0174-1000-8271-44d72bcceaeb
+    name: From MiNiFi31
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -447,11 +407,6 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6fe4aa8-0174-1000-e49a-50d48b475cea
-    name: From MiNiFi37
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6fe4aa7-0174-1000-af21-67ef6d6cce3b
     name: From MiNiFi36
     comment: ''
@@ -459,11 +414,6 @@ Remote Process Groups:
     use compression: false
   - id: bc17f030-016c-1000-2eba-262e61a9059b
     name: From MiNiFi
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6f94784-0174-1000-3e90-17da3d2779fe
-    name: From MiNiFi20
     comment: ''
     max concurrent tasks: 2
     use compression: false
@@ -487,11 +437,6 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6fe4ac1-0174-1000-4173-02770003f84a
-    name: From MiNiFi62
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6fe4ac0-0174-1000-2dff-f621c31b54a9
     name: From MiNiFi61
     comment: ''
@@ -512,11 +457,6 @@ Remote Process Groups:
     comment: ''
     max concurrent tasks: 2
     use compression: false
-  - id: f6f94788-0174-1000-582c-3bddc8e2f94d
-    name: From MiNiFi24
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
   - id: f6f94787-0174-1000-f718-6af72a015618
     name: From MiNiFi23
     comment: ''
@@ -524,11 +464,6 @@ Remote Process Groups:
     use compression: false
   - id: f6f9478a-0174-1000-d1df-c204119f1bb6
     name: From MiNiFi26
-    comment: ''
-    max concurrent tasks: 2
-    use compression: false
-  - id: f6f94789-0174-1000-7cab-ecb1f82c97c7
-    name: From MiNiFi25
     comment: ''
     max concurrent tasks: 2
     use compression: false
