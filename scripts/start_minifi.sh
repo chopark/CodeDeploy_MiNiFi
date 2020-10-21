@@ -16,24 +16,21 @@ if [ -d "$MINIFI_DIR" ]; then
 		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $1
 	fi
 
-	if [ $# -ge 3 ]; then
-		limit=$1
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now
-		limit=$3
-		pkill -9 -ef cpulimit | at $2
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $2
-	fi
-
 	if [ $# -ge 5 ]; then
-		limit=$1
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now
-		limit=$3
-		pkill -9 -ef cpulimit | at $2
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $2
 		limit=$5
 		pkill -9 -ef cpulimit | at $4
 		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $4
 	fi
+	
+	if [ $# -ge 3 ]; then
+		limit=$3
+		pkill -9 -ef cpulimit | at $2
+		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $2
+		limit=$1
+		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now
+	fi
+
+
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
