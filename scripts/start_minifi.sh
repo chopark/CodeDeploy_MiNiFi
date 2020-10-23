@@ -13,21 +13,21 @@ if [ -d "$MINIFI_DIR" ]; then
 	$MINIFI_BIN/minifi.sh start
 	if [ $# -eq 2 ]; then
 		limit=$2
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $1
+		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $3
 	fi
 
 	if [ $# -ge 5 ]; then
 		limit=$5
-		pkill -9 -ef cpulimit | at $4
+		sudo pkill -9 -ef cpulimit | at $4
 		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $4
 	fi
-	
+
 	if [ $# -ge 3 ]; then
 		limit=$3
-		pkill -9 -ef cpulimit | at $2
+		sudo pkill -9 -ef cpulimit | at $2
 		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $2
 		limit=$1
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now
+		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now + 1 min
 	fi
 
 
