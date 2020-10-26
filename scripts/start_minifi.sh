@@ -11,26 +11,25 @@ if [ -d "$MINIFI_DIR" ]; then
 	sudo chmod +x $MINIFI_BIN/minifi.sh
 	rm -rf $MINIFI_HOME/content_repository/* $MINIFI_HOME/provenance_repository/* $MINIFI_HOME/flowfile_repository/* $MINIFI_HOME/state/local/* $MINIFI_HOME/logs/*
 	$MINIFI_BIN/minifi.sh start
-	if [ $# -eq 2 ]; then
-		limit=$2
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $3
+
+	if [ $# -ge 8 ]; then
+		sudo pkill -9 -ef cpulimit | at $8
+		sudo bash $HOME/scripts/limit_cpu.sh $7 | at $8
 	fi
 
-	if [ $# -ge 5 ]; then
-		limit=$5
+	if [ $# -ge 6 ]; then
+		sudo pkill -9 -ef cpulimit | at $6
+		sudo bash $HOME/scripts/limit_cpu.sh $5 | at $6
+	fi
+
+	if [ $# -ge 4 ]; then
 		sudo pkill -9 -ef cpulimit | at $4
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $4
+		sudo bash $HOME/scripts/limit_cpu.sh $3 | at $4
 	fi
 
-	if [ $# -ge 3 ]; then
-		limit=$3
-		sudo pkill -9 -ef cpulimit | at $2
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at $2
-		limit=$1
-		sudo bash $HOME/scripts/limit_cpu.sh $limit | at now + 1 min
+	if [ $# -ge 2 ]; then
+		sudo bash $HOME/scripts/limit_cpu.sh $1 | at $2
 	fi
-
-
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
