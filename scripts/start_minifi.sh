@@ -14,22 +14,22 @@ if [ -d "$MINIFI_DIR" ]; then
 
 	MINIFI_PID=`ps -ax | grep [o]rg.apache.nifi.minifi.MiNiFi | awk {'print $1'}`
 	if [ $# -ge 8 ]; then
-		sudo pkill -9 -ef cpulimit | at $8
-		sudo cpulimit -l $7 -p $MINIFI_PID | at $8
+		pkill -9 -ef cpulimit | at $8
+		cpulimit -l $7 -p $MINIFI_PID | at $8
 	fi
 
 	if [ $# -ge 6 ]; then
-		sudo pkill -9 -ef cpulimit | at $6
-		sudo cpulimit -l $5 -p $MINIFI_PID | at $6
+		pkill -9 -ef cpulimit | at $6
+		cpulimit -l $5 -p $MINIFI_PID | at $6
 	fi
 
 	if [ $# -ge 4 ]; then
-		sudo pkill -9 -ef cpulimit | at $4
-		sudo cpulimit -l $3 -p $MINIFI_PID | at $4
+		pkill -9 -ef cpulimit | at $4
+		cpulimit -l $3 -p $MINIFI_PID | at $4
 	fi
 
 	if [ $# -ge 2 ]; then
-		sudo cpulimit -l $1 -p $MINIFI_PID | at $2
+		cpulimit -l $1 -p $MINIFI_PID | at $2
 	fi
 else
 	echo "$0: $MINIFI_DIR is missing."
