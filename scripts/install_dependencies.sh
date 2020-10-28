@@ -24,3 +24,6 @@ source /etc/environment
 
 sudo mv $HOME/config.yml $MINIFI_CONF
 sudo chmod +x $HOME/scripts/*
+
+sudo chown -R ubuntu:ubuntu ~/minifi
+sudo chown -R ubuntu:ubuntu ~/scripts

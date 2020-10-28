@@ -9,27 +9,28 @@ MINIFI_BIN="$MINIFI_HOME/bin"
 
 if [ -d "$MINIFI_DIR" ]; then
 	sudo chmod +x $MINIFI_BIN/minifi.sh
+
 	rm -rf $MINIFI_HOME/content_repository/* $MINIFI_HOME/provenance_repository/* $MINIFI_HOME/flowfile_repository/* $MINIFI_HOME/state/local/* $MINIFI_HOME/logs/*
 	$MINIFI_BIN/minifi.sh start
 
 	MINIFI_PID=`ps -ax | grep [o]rg.apache.nifi.minifi.MiNiFi | awk {'print $1'}`
 	if [ $# -ge 8 ]; then
-		pkill -9 -ef cpulimit | at $8
-		cpulimit -l $7 -p $MINIFI_PID | at $8
+		echo "pkill -9 -ef cpulimit" | at $(($6+1))
+		echo "cpulimit -l $7 -p $MINIFI_PID" | at $8
 	fi
 
 	if [ $# -ge 6 ]; then
-		pkill -9 -ef cpulimit | at $6
-		cpulimit -l $5 -p $MINIFI_PID | at $6
+		echo "pkill -9 -ef cpulimit" | at $(($4+1))
+		echo "cpulimit -l $5 -p $MINIFI_PID" | at $6
 	fi
-
+	
 	if [ $# -ge 4 ]; then
-		pkill -9 -ef cpulimit | at $4
-		cpulimit -l $3 -p $MINIFI_PID | at $4
+		echo "pkill -9 -ef cpulimit" | at $(($2+1))
+		echo "cpulimit -l $3 -p $MINIFI_PID" | at $4
 	fi
 
 	if [ $# -ge 2 ]; then
-		cpulimit -l $1 -p $MINIFI_PID | at $2
+		echo "cpulimit -l $1 -p $MINIFI_PID" | at $2
 	fi
 else
 	echo "$0: $MINIFI_DIR is missing."
