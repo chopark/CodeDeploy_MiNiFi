@@ -15,18 +15,20 @@ if [ -d "$MINIFI_DIR" ]; then
 
 	MINIFI_PID=`ps -ax | grep [o]rg.apache.nifi.minifi.MiNiFi | awk {'print $1'}`
 	if [ $# -ge 8 ]; then
-		time_gap=`date "+%H%M" -d "$6+1 min"`
+		time_gap=`date "+%H%M" -d "$8-1 min"`
 		echo "pkill -9 -ef cpulimit" | at $time_gap
 		echo "cpulimit -l $7 -p $MINIFI_PID" | at $8
 	fi
 
 	if [ $# -ge 6 ]; then
-		time_gap=`date "+%H%M" -d "$4+1 min"`
+		time_gap=`date "+%H%M" -d "$6-1 min"`
+		echo "pkill -9 -ef cpulimit" | at $time_gap
 		echo "cpulimit -l $5 -p $MINIFI_PID" | at $6
 	fi
 	
 	if [ $# -ge 4 ]; then
-		time_gap=`date "+%H%M" -d "$2+1 min"`
+		time_gap=`date "+%H%M" -d "$4-1 min"`
+		echo "pkill -9 -ef cpulimit" | at $time_gap
 		echo "cpulimit -l $3 -p $MINIFI_PID" | at $4
 	fi
 
