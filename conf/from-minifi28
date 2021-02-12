@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: test
+  name: minifi-distr-no-getfile
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -43,60 +43,18 @@ Security Properties:
     algorithm: PBEWITHMD5AND256BITAES-CBC-OPENSSL
     provider: BC
 Processors:
-- id: a817ad5e-3b57-3b23-0000-000000000000
-  name: GetFile
-  class: org.apache.nifi.processors.standard.GetFile
-  max concurrent tasks: 1
-  scheduling strategy: TIMER_DRIVEN
-  scheduling period: 1 sec
-  penalization period: 30 sec
-  yield period: 0 sec
-  run duration nanos: 0
-  auto-terminated relationships list: []
-  Properties:
-    Batch Size: '1'
-    File Filter: '[^\.].*'
-    Ignore Hidden Files: 'true'
-    Input Directory: /home/ubuntu/minifi/operator-profile-input-data
-    Keep Source File: 'true'
-    Maximum File Age:
-    Maximum File Size:
-    Minimum File Age: 0 sec
-    Minimum File Size: 0 B
-    Path Filter:
-    Polling Interval: 0 sec
-    Recurse Subdirectories: 'false'
 - id: d55bf1e4-8854-36ed-0000-000000000000
   name: MyProcessor
   class: com.jarvis.processors.edge.MyProcessor
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
-  scheduling period: 0 sec
+  scheduling period: 1 sec
   penalization period: 30 sec
   yield period: 1 sec
   run duration nanos: 0
   auto-terminated relationships list: []
   Properties:
     MY_PROPERTY: minifi_custom.cfg
-- id: 36edb56c-214d-3ea4-0000-000000000000
-  name: UpdateAttribute
-  class: org.apache.nifi.processors.attributes.UpdateAttribute
-  max concurrent tasks: 1
-  scheduling strategy: TIMER_DRIVEN
-  scheduling period: 0 sec
-  penalization period: 30 sec
-  yield period: 0 sec
-  run duration nanos: 0
-  auto-terminated relationships list: []
-  Properties:
-    Delete Attributes Expression:
-    Stateful Variables Initial Value:
-    Store State: Do not store state
-    m_source_flowfile_start: ${lineageStartDate}
-    m_source_now: ${now():toNumber()}
-    origFileSize: ${fileSize}
-    outfile.schema.name: out-flowfile
-    schema.name: hello-world
 - id: a102dfe7-9923-3995-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
@@ -138,16 +96,6 @@ Input Ports: []
 Output Ports: []
 Funnels: []
 Connections:
-- id: 88facb8b-02ba-329e-0000-000000000000
-  name: GetFile/success/UpdateAttribute
-  source id: a817ad5e-3b57-3b23-0000-000000000000
-  source relationship names:
-  - success
-  destination id: 36edb56c-214d-3ea4-0000-000000000000
-  max work queue size: 10000000
-  max work queue data size: 10 GB
-  flowfile expiration: 0 sec
-  queue prioritizer class: ''
 - id: add6bb8c-72c0-35ca-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
   source id: d55bf1e4-8854-36ed-0000-000000000000
@@ -168,32 +116,22 @@ Connections:
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: dd9a2df9-bb62-3ee0-0000-000000000000
-  name: UpdateAttribute/success/MyProcessor
-  source id: 36edb56c-214d-3ea4-0000-000000000000
-  source relationship names:
-  - success
-  destination id: d55bf1e4-8854-36ed-0000-000000000000
-  max work queue size: 10000
-  max work queue data size: 1 GB
-  flowfile expiration: 0 sec
-  queue prioritizer class: ''
 - id: 994bbe85-5118-3abd-0000-000000000000
-  name: UpdateAttribute/success/f6f9478c-0174-1000-7e3a-46f847f53764
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: ecb9aaed-1344-3f19-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478c-0174-1000-7e3a-46f847f53764
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6f9478c-0174-1000-7e3a-46f847f53764
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478c-0174-1000-7e3a-46f847f53764
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
@@ -201,7 +139,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://10.20.18.74:8080/nifi
+  url: http://172.31.17.44:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
