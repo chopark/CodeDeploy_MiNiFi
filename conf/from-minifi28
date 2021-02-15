@@ -117,21 +117,21 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 994bbe85-5118-3abd-0000-000000000000
-  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
+  name: UpdateAttribute/success/f6f9478c-0174-1000-7e3a-46f847f53764
   source id: ecb9aaed-1344-3f19-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
+  destination id: f6f9478c-0174-1000-7e3a-46f847f53764
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
+  name: UpdateAttribute/success/f6f9478c-0174-1000-7e3a-46f847f53764
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
+  destination id: f6f9478c-0174-1000-7e3a-46f847f53764
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
