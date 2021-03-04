@@ -11,3 +11,6 @@ if [ -d "$MINIFI_DIR" ]; then
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
+
+
+
