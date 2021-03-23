@@ -20,4 +20,5 @@ fi
 
 # Parse the log and show the result.
 echo "$SHELL: Parsing the log..."
+gunzip $MINIFI_LOG/*.gz
 cat $MINIFI_LOG/minifi-app* >> $MINIFI_LOG/log_cat
