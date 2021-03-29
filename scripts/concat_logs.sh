@@ -23,3 +23,4 @@ echo "$SHELL: Parsing the log..."
 gunzip $MINIFI_LOG/*.gz
 cat $MINIFI_LOG/minifi-app_* >> $MINIFI_LOG/log_cat
 cat $MINIFI_LOG/minifi-app.log >> $MINIFI_LOG/log_cat
+rm $MINIFI_LOG/minifi-app*
