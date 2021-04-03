@@ -6,6 +6,9 @@ MINIFI_CONF="$MINIFI_HOME/conf"
 MINIFI_BIN="$MINIFI_HOME/bin"
 
 if [ -d "$MINIFI_DIR" ]; then
+	CPUSTAT_PID=`ps -ax | grep [c]pustat | awk {'print $1'}`
+	echo "Killing CPU stat pid $CPUSTAT_PID" >> cpu.csv
+	pkill $CPUSTAT_PID
 	sudo chmod +x $MINIFI_BIN/minifi.sh
 	$MINIFI_BIN/minifi.sh stop
 else
