@@ -5,7 +5,6 @@ MINIFI_HOME="$MINIFI_DIR/minifi-0.5.0"
 MINIFI_CONF="$MINIFI_HOME/conf"
 MINIFI_BIN="$MINIFI_HOME/bin"
 
-
 if [ -d "$MINIFI_DIR" ]; then
 	sudo chmod +x $MINIFI_BIN/minifi.sh
 
@@ -38,7 +37,7 @@ if [ -d "$MINIFI_DIR" ]; then
 	# Tracking cpu usage after 30 seconds warm up time
 	sleep 30
 	rm cpu.csv
-	cpustat -p $MINIFI_PID >> cpu.csv &
+	cpustat -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv &
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
