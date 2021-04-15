@@ -37,7 +37,7 @@ if [ -d "$MINIFI_DIR" ]; then
 	# Tracking cpu usage after 30 seconds warm up time
 	sleep 40
 	sudo rm $MINIFI_DIR/cpu.csv
-	nohup cpustat -a -q -p $MINIFI_PID -r $MINIFI_DIR/cpu.csv &
+	nohup cpustat -a -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv &
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
