@@ -32,10 +32,12 @@ if [ -d "$MINIFI_DIR" ]; then
 
 	if [ $# -ge 2 ]; then
 		echo "cpulimit -l $1 -p $MINIFI_PID" | at $2
+		date > $MINIFI_DIR/cpulimitts.csv
+                echo "Set CPU limit " >> $MINIFI_DIR/cpulimitts.csv
 	fi
 
 	# Tracking cpu usage after 30 seconds warm up time
-	sleep 40
+	sleep 60
 	sudo rm $MINIFI_DIR/cpu.csv
 	nohup cpustat -a -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv &
 else
