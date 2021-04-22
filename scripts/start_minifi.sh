@@ -12,6 +12,7 @@ if [ -d "$MINIFI_DIR" ]; then
 	$MINIFI_BIN/minifi.sh start
 
 	MINIFI_PID=`ps -ax | grep [o]rg.apache.nifi.minifi.MiNiFi | awk {'print $1'}`
+	sudo rm $MINIFI_DIR/cpu.csv
 	if [ $# -ge 8 ]; then
 		time_gap=`date "+%H%M" -d "$8-1 min"`
 		echo "pkill -9 -ef cpulimit" | at $time_gap
@@ -32,14 +33,12 @@ if [ -d "$MINIFI_DIR" ]; then
 
 	if [ $# -ge 2 ]; then
 		echo "cpulimit -l $1 -p $MINIFI_PID" | at $2
+		echo "cpustat -a -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv" | at $2
 		date > $MINIFI_DIR/cpulimitts.csv
                 echo "Set CPU limit " >> $MINIFI_DIR/cpulimitts.csv
 	fi
 
-	# Tracking cpu usage after 30 seconds warm up time
-	sleep 60
-	sudo rm $MINIFI_DIR/cpu.csv
-	nohup cpustat -a -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv &
+	#nohup cpustat -a -p $MINIFI_PID >> $MINIFI_DIR/cpu.csv &
 else
 	echo "$0: $MINIFI_DIR is missing."
 fi
