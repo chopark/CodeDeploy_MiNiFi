@@ -43,18 +43,18 @@ Security Properties:
     algorithm: PBEWITHMD5AND256BITAES-CBC-OPENSSL
     provider: BC
 Processors:
-- id: d55bf1e4-8854-36ed-0000-000000000000
+- id: 87ec2bcc-aba4-39f3-0000-000000000000
   name: MyProcessor
   class: com.jarvis.processors.edge.MyProcessor
   max concurrent tasks: 1
   scheduling strategy: TIMER_DRIVEN
   scheduling period: 1 sec
   penalization period: 30 sec
-  yield period: 1 sec
+  yield period: 0 sec
   run duration nanos: 0
   auto-terminated relationships list: []
   Properties:
-    MY_PROPERTY:
+    MY_PROPERTY: /home/ubuntu/minifi/minifi_custom.cfg
 - id: a102dfe7-9923-3995-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
@@ -96,42 +96,42 @@ Input Ports: []
 Output Ports: []
 Funnels: []
 Connections:
-- id: add6bb8c-72c0-35ca-0000-000000000000
+- id: 30393589-0e7f-3c55-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP/UpdateAttribute
-  source id: d55bf1e4-8854-36ed-0000-000000000000
+  source id: 87ec2bcc-aba4-39f3-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP
   destination id: a102dfe7-9923-3995-0000-000000000000
-  max work queue size: 100000
-  max work queue data size: 5 GB
+  max work queue size: 1000000
+  max work queue data size: 10 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
-- id: 44e6e789-2a6b-3a9d-0000-000000000000
+- id: d4d0c387-8808-347f-0000-000000000000
   name: MyProcessor/MY_RELATIONSHIP_1/UpdateAttribute
-  source id: d55bf1e4-8854-36ed-0000-000000000000
+  source id: 87ec2bcc-aba4-39f3-0000-000000000000
   source relationship names:
   - MY_RELATIONSHIP_1
   destination id: ecb9aaed-1344-3f19-0000-000000000000
-  max work queue size: 100000
-  max work queue data size: 5 GB
+  max work queue size: 1000000
+  max work queue data size: 10 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 994bbe85-5118-3abd-0000-000000000000
-  name: UpdateAttribute/success/f6fe4ac1-0174-1000-4173-02770003f84a
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: ecb9aaed-1344-3f19-0000-000000000000
   source relationship names:
   - success
-  destination id: f6fe4ac1-0174-1000-4173-02770003f84a
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6fe4ac1-0174-1000-4173-02770003f84a
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6fe4ac1-0174-1000-4173-02770003f84a
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
