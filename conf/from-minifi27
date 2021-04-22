@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: minifi-distr-no-getfile
+  name: minifi-conf-localhost
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -54,7 +54,7 @@ Processors:
   run duration nanos: 0
   auto-terminated relationships list: []
   Properties:
-    MY_PROPERTY: minifi_custom.cfg
+    MY_PROPERTY:
 - id: a102dfe7-9923-3995-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
@@ -117,21 +117,21 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 994bbe85-5118-3abd-0000-000000000000
-  name: UpdateAttribute/success/f6f9478b-0174-1000-f8cd-a9b57e4c1567
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: ecb9aaed-1344-3f19-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478b-0174-1000-f8cd-a9b57e4c1567
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6f9478b-0174-1000-f8cd-a9b57e4c1567
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478b-0174-1000-f8cd-a9b57e4c1567
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
@@ -139,7 +139,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.17.44:8080/nifi
+  url: http://localhost:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
