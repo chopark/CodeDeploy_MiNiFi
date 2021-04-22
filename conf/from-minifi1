@@ -54,7 +54,7 @@ Processors:
   run duration nanos: 0
   auto-terminated relationships list: []
   Properties:
-    MY_PROPERTY: /home/ubuntu/minifi/minifi_custom.cfg
+    MY_PROPERTY: minifi_custom.cfg
 - id: a102dfe7-9923-3995-0000-000000000000
   name: UpdateAttribute
   class: org.apache.nifi.processors.attributes.UpdateAttribute
