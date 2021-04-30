@@ -1,6 +1,6 @@
 MiNiFi Config Version: 3
 Flow Controller:
-  name: minifi-distr-172.31.17.44
+  name: minifi-distr-172.31.1.181
   comment: ''
 Core Properties:
   flow controller graceful shutdown period: 10 sec
@@ -117,21 +117,21 @@ Connections:
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: 994bbe85-5118-3abd-0000-000000000000
-  name: UpdateAttribute/success/f6f9478d-0174-1000-a754-b3294e95ea30
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: ecb9aaed-1344-3f19-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478d-0174-1000-a754-b3294e95ea30
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 100000
   max work queue data size: 5 GB
   flowfile expiration: 0 sec
   queue prioritizer class: ''
 - id: f8e14613-d7b0-33a4-0000-000000000000
-  name: UpdateAttribute/success/f6f9478d-0174-1000-a754-b3294e95ea30
+  name: UpdateAttribute/success/f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   source id: a102dfe7-9923-3995-0000-000000000000
   source relationship names:
   - success
-  destination id: f6f9478d-0174-1000-a754-b3294e95ea30
+  destination id: f6f208fd-0174-1000-0e62-0c1b2a70c6f4
   max work queue size: 10000000
   max work queue data size: 10 GB
   flowfile expiration: 0 sec
@@ -139,7 +139,7 @@ Connections:
 Remote Process Groups:
 - id: 484f76dd-ea94-3980-0000-000000000000
   name: ''
-  url: http://172.31.17.44:8080/nifi
+  url: http://172.31.1.181:8080/nifi
   comment: ''
   timeout: 30 sec
   yield period: 0 sec
